@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fritz's Calling Card</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="website.jpg"> <!-- Replace with your .jpg favicon -->
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="223 AM.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Page Content -->
+  <div class="content">
+    <!-- Profile Picture -->
+    <div class="profile">
+      <img src="profile.png" alt="Fritz's Profile Picture">
+    </div>
+
+    <!-- Info Section -->
+    <div class="intro">
+      <h1>【I】【n】【f】【o】</h1>
+      <p>【Ｉ＇ｍ　ａ　ｂｏｒｅｄ　Ｉ．Ｔ　ｓｔｕｄｅｎｔ】</p>
+    </div>
+
+    <!-- Socials Section -->
+    <div class="socials">
+      <h2>Find me on:</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/johnvert.ocbena" target="_blank">FaceBook</a></li>
+        <li><a href="N/A" target="_blank">Discord (fritz_top)</a></li>
+        <li><a href="https://www.instagram.com/xanteriajaen/" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JavaScript to Handle Autoplay -->
+  <script>
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('bg-music');
+
+      // Try to play the audio muted
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Unmute after successful playback starts
+            audio.muted = false;
+          })
+          .catch((error) => {
+            console.warn('Autoplay blocked. Waiting for user interaction:', error);
+
+            // Wait for user interaction to unmute and play audio
+            document.body.addEventListener('click', () => {
+              audio.muted = false;
+              audio.play();
+            });
+          });
+      }
+    });
+  </script>
+</body>
+</html>
